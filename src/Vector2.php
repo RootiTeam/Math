@@ -120,7 +120,9 @@ class Vector2{
 		if($x instanceof Vector2){
 			return $this->distanceSquared($x->x, $x->y);
 		}else{
-			return (($this->x - $x) ** 2) + (($this->y - $y) ** 2);
+			$dx = $this->x - $x;
+			$dy = $this->y - $y;
+			return ($dx * $dx) + ($dy * $dy);
 		}
 	}
 

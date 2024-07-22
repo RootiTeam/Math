@@ -240,7 +240,10 @@ class Vector3{
 	}
 
 	public function distanceSquared(Vector3 $pos) : float{
-		return (($this->x - $pos->x) ** 2) + (($this->y - $pos->y) ** 2) + (($this->z - $pos->z) ** 2);
+		$dx = $this->x - $pos->x;
+        $dy = $this->y - $pos->y;
+        $dz = $this->z - $pos->z;
+        return ($dx * $dx) + ($dy * $dy) + ($dz * $dz);
 	}
 
 	/**
@@ -367,6 +370,21 @@ class Vector3{
 		$this->x = $x;
 		$this->y = $y;
 		$this->z = $z;
+		return $this;
+	}
+
+	/**
+	 * @param Vector3 $pos
+	 * @param float     $x
+	 * @param float     $y
+	 * @param float     $z
+	 *
+	 * @return $this
+	 */
+	public function fromObjectAdd(Vector3 $pos, $x, $y, $z){
+		$this->x = $pos->x + $x;
+		$this->y = $pos->y + $y;
+		$this->z = $pos->z + $z;
 		return $this;
 	}
 
